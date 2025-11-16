@@ -4,25 +4,22 @@
 # f(1) returns 2
 # f(5) returns 11
 
+def is_prime(x):
+    if x < 2:
+        return False
+    for i in range(2, int(x**0.5) + 1):
+        if x % i == 0:
+            return False
+    return True
+
 def f(n):
-    prime = True
-    biggest = 1
+    count = 0
+    number = 1
+    while count < n:
+        number += 1
+        if is_prime(number):
+            count += 1
+    return number
 
-    primes = 0
-    i = 0
-    # while primes < n:
-        # for j in range(1, i+1):
-        #     if i % j == 0 and i != j and j != 1:
-        #         prime = False
-        #         break
-        
-        # i += 1
-        # if prime:
-        #     primes += 1
-        #     biggest = i
-        #     print(primes, i, n)
-    
-    # return biggest
-
-# print(f(1))
-# print(f(5))
+print(f(1))
+print(f(5))
